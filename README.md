@@ -34,9 +34,6 @@ StudioFits is a new innovative form of technology used to advance fasion. This m
 * As a user, I would like to scroll through 'Favorite outfits' page and be able to see if outfit is available for use
 * As a user, I would like an easy form to add new stuff to my Closet
 
-
-
-
 ## MVP
 -display the inventory of clothing
 -show the status of each individual clothing (stored, used, washing)
