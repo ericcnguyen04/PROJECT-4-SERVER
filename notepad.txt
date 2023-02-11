@@ -1,1 +1,5 @@
 sequelize model:create --name user --attributes name:string,email:string,password:string
+sequelize model:create --name fit --attributes nickname:string,type:string,status:boolean,favorite:boolean,duration:string,userId:integer
+
+
+sequelize model:create --name favorite --attributes userId:integer,fitId:integer
