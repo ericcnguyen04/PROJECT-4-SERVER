@@ -8,5 +8,14 @@ router.get('/', (req, res) => {
     res.render('')
 })
 
+// POST /create -- creation of clothing
+router.post('/', async (req, res) => {
+    try {
+        
+    } catch (error) {
+        console.log(error)
+    }
+})
+
 // export the router
 module.exports = router
