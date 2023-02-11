@@ -35,8 +35,13 @@ app.get('/', middleWare, (req, res) => {
   res.json({ msg: 'hello backend 🤖' })
 })
 
+
+
 // controllers
 app.use('/api-v1/users', require('./controllers/api-v1/users.js'))
+app.use('/api-v1/inventory', require('./controllers/api-v1/inventory'))
+app.use('/api-v1/search', require('./controllers/api-v1/search'))
+app.use('/api-v1/create', require('./controllers/api-v1/create'))
 
 // hey listen
 app.listen(PORT, () => {
