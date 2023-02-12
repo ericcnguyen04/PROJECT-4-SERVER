@@ -1,6 +1,6 @@
 // create an instance of express routers
 const express = require('express')
-const db = require('../models')
+const db = require('../../models') // changed to ../../
 const router = express.Router()
 
 // GET /search
@@ -33,7 +33,7 @@ router.get('/', async (req, res) => {
 router.get('/:type', async (req, res) => {
     try {
         // look up a event using the id from the request parameters
-        const pieces = await db.fit.findById(req.params.type)
+        const pieces = await db.fit.findAll(req.params.type) //findAll since we want to find all shirts and pants etc; 
         
         // if the piece is not found, respond with 404
         if (!pieces) {
@@ -52,9 +52,10 @@ router.get('/:type', async (req, res) => {
     }
 })
 
-// also in the search page, it will be displaying all clothes in the db and you can either filter or just scroll down but they all will have the same feature. If you find the one you are looking for, you just have to click it and it will display a pop up of the info of that piece. info is 'availability(boolean), nickname'. so doing this, would we need a get router with parameters of id
-
-router.get('/:id', async (req, res) => {
+// also in the search page, it will be displaying all clothes from the db and you can either filter or just scroll down but they all will have the same feature. If you find the one you are looking for, you just have to click it and it will display a pop up of the info of that piece. info is 'availability(boolean), nickname'. so doing this, would we need a get router with parameters of id? Note: check both blocks of code
+// is inventory.js correct or med rare
+// ----/:type/:id to get a specific shirt/pant/shoes ex: find all shirts, now find that specific shirt ----- how to associate specific items via fit models 
+router.get('/:type/:id', async (req, res) => {
     try {
         // look up a event using the id from the request parameters
         const pieceInfo = await db.fit.findById(req.params.id)
