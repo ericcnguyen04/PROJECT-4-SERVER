@@ -3,7 +3,6 @@ const express = require('express')
 const db = require('../models')
 const router = express.Router()
 
-
 // GET /inventory - test endpoint
 router.get('/', async (req, res) => {
     try {
@@ -11,6 +10,17 @@ router.get('/', async (req, res) => {
         res.json(fit)
     } catch (error) {
         console.log(error)
+    }
+})
+
+// there will be no POST function in /inventory
+
+// PUT /inventory/:id - an edit function with the idea of pop-up cards
+router.put('/edit', async(req, res) => {
+    try {
+
+    } catch {
+        
     }
 })
 
