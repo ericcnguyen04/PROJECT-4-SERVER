@@ -1,43 +1,44 @@
 require('dotenv').config()
 const db = require('./models')
-db.connect()
+const express = require('express')
+const router = express.Router()
 
 const userTest = async () => {
   try {
     // CREATE
-    const newUser = new db.User({
-      name: 'bing',
-      email: 'bing@bang.com',
-      password: 'bingbang'
+    const newUser = await db.user.create({
+      name: 'we',
+      email: 'w@e',
+      password: 'we'
     })
   
     await newUser.save()
     console.log('newUser', newUser)
 
-    // READ
-    const foundUser =  await db.User.findOne({
-      name: newUser.name
-    })
+    // // READ
+    // const foundUser =  await db.User.findOne({
+    //   name: newUser.name
+    // })
 
-    console.log('foundUser', foundUser)
+    // console.log('foundUser', foundUser)
 
-    // UPDATE
-    foundUser.name = 'bangBang'
+    // // UPDATE
+    // foundUser.name = 'bangBang'
 
-    await foundUser.save()
+    // await foundUser.save()
 
-    const findUserAgain = await db.User.findOne({
-      name: 'bangBang'
-    })
+    // const findUserAgain = await db.User.findOne({
+    //   name: 'bangBang'
+    // })
 
-    console.log('findUserAgain', findUserAgain)
+    // console.log('findUserAgain', findUserAgain)
 
-    // DESTROY
-    const deleteUser = await db.User.deleteOne({
-      name: 'bangBang'
-    })
+    // // DESTROY
+    // const deleteUser = await db.User.deleteOne({
+    //   name: 'bangBang'
+    // })
 
-    console.log('deleteUser', deleteUser)
+    // console.log('deleteUser', deleteUser)
 
     // we done
     process.exit()
