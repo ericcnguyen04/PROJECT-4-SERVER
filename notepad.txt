@@ -15,3 +15,23 @@ notes: i believe create controllers doest have a get route for form, just a post
 make sure 'inventory' controller is done, pretty sure it is, once you have done line 12, go to react and display all db clothes
 
 
+
+// POST /create -- creation of clothing
+router.post('/create', async (req, res) => {
+    try {
+         const create = await db.fit.findAll({
+            where: {
+                nickname: req.body.nickname,
+                type: req.body.type,
+                status: req.body.status,
+                // favorite: req.body.favorite,
+                duration: req.body.duration,
+                userId: res.locals.user.id
+            }
+        })
+
+        res.render('')
+    } catch (error) {
+        console.log(error)
+    }
+})
