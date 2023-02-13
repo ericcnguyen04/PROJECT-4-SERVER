@@ -15,8 +15,11 @@ router.post('/register', async (req, res) => {
   try {
     // check if user exists already
     const findUser = await db.user.findOne({
-      email: req.body.email
+      where: {
+        email: req.body.email
+      }
     })
+    console.log(findUser)
 
     // don't allow emails to register twice
     if(findUser) return res.status(400).json({ msg: 'email exists already' })
@@ -55,7 +58,9 @@ router.post('/login', async (req, res) => {
   try {
     // try to find user in the db
     const foundUser = await db.user.findOne({
-      email: req.body.email
+      where: {
+        email: req.body.email
+      }
     })
 
     const noLoginMessage = 'Incorrect username or password'
