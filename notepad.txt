@@ -16,22 +16,10 @@ make sure 'inventory' controller is done, pretty sure it is, once you have done 
 
 
 
-// POST /create -- creation of clothing
-router.post('/create', async (req, res) => {
-    try {
-         const create = await db.fit.findAll({
-            where: {
-                nickname: req.body.nickname,
-                type: req.body.type,
-                status: req.body.status,
-                // favorite: req.body.favorite,
-                duration: req.body.duration,
-                userId: res.locals.user.id
-            }
-        })
+Notes:
 
-        res.render('')
-    } catch (error) {
-        console.log(error)
-    }
-})
+no where clause in CREATE
+
+findOrCreate requires where clause
+
+insertInto does not need where clause
