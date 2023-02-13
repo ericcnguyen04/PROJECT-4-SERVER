@@ -15,9 +15,9 @@ const router = express.Router()
 // })
 
 // POST /create -- creation of clothing
-router.post('/create', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
-         const create = await db.fit.findAll({
+         const create = await db.fit.create({
             where: {
                 nickname: req.body.nickname,
                 type: req.body.type,
@@ -27,10 +27,11 @@ router.post('/create', async (req, res) => {
                 userId: res.locals.user.id
             }
         })
-
-        res.render('')
+        console.log(req.body)
+        res.status(201).json(create)
     } catch (error) {
         console.log(error)
+        res.status(500).json({msg:'server error'})
     }
 })
 
