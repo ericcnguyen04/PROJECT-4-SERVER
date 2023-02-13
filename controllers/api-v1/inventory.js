@@ -18,9 +18,30 @@ router.get('/', async (req, res) => { //change to '/inventory' from '/'
 // PUT /inventory/:id - an edit function with the idea of pop-up cards
 router.put('/edit', async(req, res) => {
     try {
+        //res.send(req.body.id)
+        const fitEdit = await db.fit.findByPk(req.body.id)
+        await fitEdit.update({
+            nickname: req.body.nickname,
+            type: req.body.type,
+            status: req.body.status,
+            favorite: req.body.favorite,
+            duration: req.body.duration,
+            userId: res.locals.user.id
+        })
+    } catch (error) {
+        console.log(error)
+    }
+})
 
-    } catch {
-        
+// DELETE /inventory/:id - a delete functino with the idea of deleting them on popup cards
+router.delete('/:id', async (req, res) => {
+    // console.log('delete route')
+    try {
+        const deleteClothes = await db.fit.findByPk(req.params.id)
+        deleteClothes.destroy()
+        res.redirect('/')
+    } catch (error) {
+        console.log(error)
     }
 })
 
