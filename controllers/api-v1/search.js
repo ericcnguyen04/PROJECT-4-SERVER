@@ -13,10 +13,11 @@ router.get('/', async (req, res) => {
         if (err.kind === "ObjectId") {
             res.status(404).json({ msg: err.message })
         } else {
-            res.status(500).json({ msg: 'Interval Server Error, Contact the System Administrator' })
+            res.status(500).json({ msg: 'server error 1s' })
         }
     }
 })
+
 
 
 // GET /search/whatever user is looking for
@@ -47,7 +48,7 @@ router.get('/:type', async (req, res) => {
         if (err.kind === "ObjectId") {
             res.status(404).json({ msg: err.message })
         } else {
-            res.status(500).json({ msg: 'Interval Server Error, Contact the System Administrator' })
+            res.status(500).json({ msg: 'server error 2s' })
         }
     }
 })
@@ -72,7 +73,7 @@ router.get('/:type/:id', async (req, res) => {
         if (err.kind === "ObjectId") {
             res.status(404).json({ msg: err.message })
         } else {
-            res.status(500).json({ msg: 'Interval Server Error, Contact the System Administrator' })
+            res.status(500).json({ msg: 'server error 3s' })
         }
     }
 })

@@ -11,6 +11,7 @@ router.get('/', async (req, res) => { //change to '/inventory' from '/'
         res.json(fit)
     } catch (error) {
         console.log(error)
+        res.status(500).json({ msg: 'server error 1i' })
     }
 })
 
