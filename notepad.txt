@@ -23,3 +23,12 @@ no where clause in CREATE
 findOrCreate requires where clause
 
 insertInto does not need where clause
+
+
+need to do:
+
+render only users logged in
+
+edit on same page
+
+we need to make status all false when created
