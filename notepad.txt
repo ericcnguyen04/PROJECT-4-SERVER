@@ -3,3 +3,32 @@ sequelize model:create --name fit --attributes nickname:string,type:string,statu
 
 
 sequelize model:create --name favorite --attributes userId:integer,fitId:integer
+
+
+
+work on backend
+
+make sure 'create' controller is working, make a test.js file and create pieces to db
+notes: i believe create controllers doest have a get route for form, just a post
+
+
+make sure 'inventory' controller is done, pretty sure it is, once you have done line 12, go to react and display all db clothes
+
+
+
+Notes:
+
+no where clause in CREATE
+
+findOrCreate requires where clause
+
+insertInto does not need where clause
+
+
+need to do:
+
+render only users logged in
+
+edit on same page
+
+we need to make status all false when created

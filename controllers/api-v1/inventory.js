@@ -7,10 +7,15 @@ const authLockedRoute = require('./authLockedRoute')
 // GET /inventory - test endpoint
 router.get('/', authLockedRoute, async (req, res) => { //change to '/inventory' from '/'
     try {
-        const fit = await db.fit.findAll({})
-        res.json(fit)
+        const fit = await db.fit.findAll({
+        where: {
+            userId: res.locals.user.id
+        }
+    }); 
+    res.json(fit)
     } catch (error) {
         console.log(error)
+        res.status(500).json({ msg: 'server error 1i' })
     }
 })
 
