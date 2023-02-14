@@ -38,7 +38,7 @@ router.put('/:id', authLockedRoute, async(req, res) => {
 })
 
 // DELETE /inventory/:id - a delete functino with the idea of deleting them on popup cards
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authLockedRoute, async (req, res) => {
     // console.log('delete route')
     try {
         const deleteClothes = await db.fit.findByPk(req.params.id)
