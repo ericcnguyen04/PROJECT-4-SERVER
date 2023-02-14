@@ -5,7 +5,7 @@ const router = express.Router()
 const authLockedRoute = require('./authLockedRoute')
 
 // GET /inventory - test endpoint
-router.get('/', async (req, res) => { //change to '/inventory' from '/'
+router.get('/', authLockedRoute, async (req, res) => { //change to '/inventory' from '/'
     try {
         const fit = await db.fit.findAll({})
         res.json(fit)
