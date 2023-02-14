@@ -20,17 +20,17 @@ router.get('/', async (req, res) => { //change to '/inventory' from '/'
 router.put('/:id', authLockedRoute, async(req, res) => {
     try {
         //res.send(req.body.id)
-        const fitEdit = await db.fit.findByPk(req.body.id)
-        res.send(fitEdit)
+        const fitEdit = await db.fit.findByPk(req.params.id)
+        // console.log(req.params.id,'📛🚸')
+        // console.log(req.body,'📛🚸')
+        res.json(fitEdit)
         await fitEdit.update({
-            where: {
-                nickname: req.body.nickname,
-                type: req.body.type,
-                status: req.body.status,
-                favorite: req.body.favorite,
-                duration: req.body.duration,
-                userId: res.locals.user.id
-            }
+            nickname: req.body.nickname,
+            type: req.body.type,
+            status: req.body.status,
+            favorite: req.body.favorite,
+            duration: req.body.duration,
+            userId: res.locals.user.id
         })
     } catch (error) {
         console.log(error)
