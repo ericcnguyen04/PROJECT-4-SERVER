@@ -22,8 +22,8 @@ router.post('/', authLockedRoute, async (req, res) => {
         const create = await db.fit.create({
             nickname: req.body.nickname,
             type: req.body.type,
-            status: req.body.status,
-            favorite: req.body.favorite,
+            status: true,
+            favorite: false,
             duration: req.body.duration,
             userId: res.locals.user.id
         })

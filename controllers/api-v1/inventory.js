@@ -27,8 +27,8 @@ router.put('/:id', authLockedRoute, async(req, res) => {
         await fitEdit.update({
             nickname: req.body.nickname,
             type: req.body.type,
-            status: req.body.status,
-            favorite: req.body.favorite,
+            status: req.body.status, // true
+            favorite: req.body.favorite, // false
             duration: req.body.duration,
             userId: res.locals.user.id
         })
