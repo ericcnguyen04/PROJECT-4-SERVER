@@ -28,7 +28,6 @@ router.put('/:id', authLockedRoute, async(req, res) => {
         const fitEdit = await db.fit.findByPk(req.params.id)
         // console.log(req.params.id,'📛🚸')
         // console.log(req.body,'📛🚸')
-        res.json(fitEdit)
         await fitEdit.update({
             nickname: req.body.nickname,
             type: req.body.type,
@@ -37,6 +36,7 @@ router.put('/:id', authLockedRoute, async(req, res) => {
             duration: req.body.duration,
             userId: res.locals.user.id
         })
+        res.json(fitEdit)
     } catch (error) {
         console.log(error)
     }
