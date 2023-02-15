@@ -42,3 +42,4 @@ router.get('/auth-locked', authLockedRoute, (req, res) => {
 
 // export the router
 module.exports = router
+
