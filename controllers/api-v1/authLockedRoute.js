@@ -5,7 +5,6 @@ const db = require('../../models')
 const authLockedRoute = async (req, res, next) => {
   try {
     // jwt from client
-    console.log(req)
     const authHeader = req.headers.authorization
     // will throw to catch if jwt can't be verified
     const decode = await jwt.verify(authHeader, process.env.JWT_SECRET)

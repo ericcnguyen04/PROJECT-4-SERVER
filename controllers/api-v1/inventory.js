@@ -16,6 +16,7 @@ router.get('/', authLockedRoute, async (req, res) => { //change to '/inventory' 
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: 'server error 1i' })
+        
     }
 })
 
@@ -27,7 +28,7 @@ router.put('/:id', authLockedRoute, async(req, res) => {
         //res.send(req.body.id)
         const fitEdit = await db.fit.findByPk(req.params.id)
         // console.log(req.params.id,'📛🚸')
-        // console.log(req.body,'📛🚸')
+        console.log('hello', req.body,'📛🚸')
         await fitEdit.update({
             nickname: req.body.nickname,
             type: req.body.type,
@@ -39,6 +40,7 @@ router.put('/:id', authLockedRoute, async(req, res) => {
         res.json(fitEdit)
     } catch (error) {
         console.log(error)
+        res.status(500).json({ msg: 'server error 1i' })
     }
 })
 
