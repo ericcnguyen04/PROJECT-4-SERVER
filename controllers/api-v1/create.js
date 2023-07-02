@@ -19,6 +19,7 @@ const jwt = require('jsonwebtoken')
 // === !! === !! === !! === //
 
 // POST /create -- creation of clothing
+// this file is purely for POST route, hence why there isnt a get, put, delete
 router.post('/', authLockedRoute, async (req, res) => {
     try {
         const create = await db.fit.create({
@@ -40,7 +41,7 @@ router.post('/', authLockedRoute, async (req, res) => {
 // GET /auth-locked - will redirect if bad jwt token is found
 router.get('/auth-locked', authLockedRoute, (req, res) => {
     res.json( { msg: 'welcome to the private route!' })
-  })
+})
 
 // export the router
 module.exports = router
