@@ -5,6 +5,7 @@ const router = express.Router()
 const authLockedRoute = require('./authLockedRoute')
 const jwt = require('jsonwebtoken')
 
+// === !! === !! === !! === //
 // // GET /create -- show a form on creating new clothes
 // router.get('/create', async (req, res) => {
 //     try {
@@ -15,6 +16,7 @@ const jwt = require('jsonwebtoken')
 //     }
 
 // })
+// === !! === !! === !! === //
 
 // POST /create -- creation of clothing
 router.post('/', authLockedRoute, async (req, res) => {
