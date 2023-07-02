@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 // So we want to have a search filter thing where when we type out lets say 'shirt', it will display all shirts, if we type 'pants', it will display all pants,
 //  im assuming that would be done in the client side? unless we can make the parameters the string type we want
 
-// in our database, we have a column 'type:string' and when we create(add) a new piece to our db, its a dropdown so the 'type' in the database will be specific to either shirt, pants or shoes. 
+// in our database,  we have a column 'type:string' and when we create(add) a new piece to our db, its a dropdown so the 'type' in the database will be specific to either shirt, pants or shoes. 
 
 // if thats get too complicated, we have another idea where the search page will be more of a filter dropdown thing where we click on the type 'string' we are looking for and it looks for what keyword in the db. which is more effective/less complicated
 
